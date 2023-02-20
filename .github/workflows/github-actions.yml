@@ -22,4 +22,6 @@ jobs:
         with:
           mongodb-version: 4.4
       - name: Build and test
-        run: ./gradlew clean build
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: ./gradlew clean build sonarqube --info
